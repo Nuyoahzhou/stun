@@ -1,20 +1,22 @@
 #[macro_use]
-extern crate lazy_static; 
+extern crate lazy_static;
 
+pub mod attribute;
+pub mod client;
 pub mod consts;
+pub mod discover;
+pub mod host;
+pub mod net;
+pub mod packet;
+pub mod response;
+pub mod tests;
+pub mod utils;
 
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+pub use consts::*;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
-
+pub use attribute::Attribute;
+pub use client::Client;
+pub use consts::NAT;
+pub use host::Host;
+pub use packet::Packet;
+pub use response::Response;
